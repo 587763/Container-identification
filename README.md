@@ -54,4 +54,7 @@ Project Organization
 
 --------
 
+<p><small>Project using YOLOv8 model architecture  <a target="_blank" href="https://github.com/ultralytics/ultralytics">YOLOv8 model architecture</a>. </small></p>
+<p><small><a target="_blank" href="https://docs.ultralytics.com/">YOLOv8 Documentation</a>. </small></p>
+
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
