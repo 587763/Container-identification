@@ -25,14 +25,25 @@ Methods
 Two different approaches that were investigated: 
 
 - Object detection to find the area of the container ID -> read the text form the cropped area by Tesseract OCR
- - pros:
- - cons:
+   pros:
+   cons:
  
 - Full object detection approach, find each individual char of the container IDs with object detecton, then combine the detections into a full container ID String 
- - pros:
- - cons:
+   pros:
+   cons:
 
 Results
+
+- Object detection + tesseract:
+
+- Full object detection:
+
+The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belongs to the ID, meanwhile ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post processing of the output by for example comparing the predicted ID with a list of known possibl IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable,(sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). Perhaps with more training data and more training time, this approach could have results pushed even farther
+
+training results:
+![training results](https://github.com/587763/Container-identification/edit/main/reports/figures/bestChar45TrainingResults/results.png?raw=true)
+
+confusion matrix: 
 
 
 
