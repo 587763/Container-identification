@@ -1,22 +1,40 @@
-Dat255 Project Proposal – Computer Vision 
+Dat255 Project – Computer Vision 
 
 Identifying shipping container IDs 
 
 Endre Johannesen Rossavik and Alexander Nordstrand 
 
-Introduction 
+Introduction
 
-Most shipping containers have a unique ID signature printed on all sides, the international standard for these signatures is the BIC-code. These codes can be identified by an AI model just from images of the containers. The containers have uneven surfaces, wear and tear (rust, dirt, dents) and varying ID locations and text directions. They can often contain other unimportant text as well. The model needs to be able to locate the relevant text and read it accurately. 
+Shipping containers are used globally to transport goods, by road, train or by sea. It is a massive logistic undertaking to make sure shipping containers and the goods within get to where they are supposed to go, within a reasonable time, for as little cost as possible. Global shipping is a competitive market where squeezing out every bit of added efficiency, and reduction of man hours, is very compelling.
+
+Most shipping containers have a unique ID signature printed on all sides, the international standard for these signatures is the BIC-code but not all container owners follow these standards, but have a variety of their own ways to issue ID's for their containers. These codes could be identified by an AI model just from images of the containers. The containers have uneven surfaces, wear and tear (rust, dirt, dents) and varying ID locations and text directions which make the task more difficult. They can often contain other unimportant text as well, so the model needs to be able to locate the relevant text and read it accurately. 
 
 Goals 
 
 - Investigate models and methods for extracting identification codes automatically from image data. 
 
--Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.  
+- Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.  
 
 - Gain solid experience of the difficulties, challenges and pitfalls of extracting characters reliably from complex, imperfect real-life image data. 
 
 - Implement a prototype proof of concept solution that demonstrates the feasibility of the ID identification solution. 
+
+Methods
+
+two different approaches that were investigated: 
+
+- Object detection to find the area of the container ID -> read the text form the cropped area by Tesseract OCR
+ -pros:
+ -cons:
+ 
+- Full object detection approach, find each individual char of the container IDs with object detecton, then combine the detections into a full container ID String 
+ -pros:
+ -cons
+
+Results
+
+
 
 Project Organization
 ------------
