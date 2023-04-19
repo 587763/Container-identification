@@ -1,7 +1,22 @@
-Shipping conntainer ID identification
-==============================
+Dat255 Project Proposal – Computer Vision 
 
-Identifying shipping containers by automatically extracting the ID from images
+Identifying shipping container IDs 
+
+Endre Johannesen Rossavik and Alexander Nordstrand 
+
+Introduction 
+
+Most shipping containers have a unique ID signature printed on all sides, the international standard for these signatures is the BIC-code. These codes can be identified by an AI model just from images of the containers. The containers have uneven surfaces, wear and tear (rust, dirt, dents) and varying ID locations and text directions. They can often contain other unimportant text as well. The model needs to be able to locate the relevant text and read it accurately. 
+
+Goals 
+
+- Investigate models and methods for extracting identification codes automatically from image data. 
+
+-Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.  
+
+- Gain solid experience of the difficulties, challenges and pitfalls of extracting characters reliably from complex, imperfect real-life image data. 
+
+- Implement a prototype proof of concept solution that demonstrates the feasibility of the ID identification solution. 
 
 Project Organization
 ------------
