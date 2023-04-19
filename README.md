@@ -22,14 +22,16 @@ Most shipping containers have a unique ID signature printed on all sides, the in
 Two different approaches that were investigated:
 
 - Object detection to find the area of the container ID -> read the text from the cropped area by Tesseract OCR
-  - pros: Object detection seems to perform very well, seems like a clear path towards better container ID accuracy with more training data.
+
+  - Pros: Object detection seems to perform very well, seems like a clear path towards better container ID accuracy with more training data.
   
-  - cons: Requires a lot of training data and takes a lot of manual time to label (Potentially 11 bounding boxes of Chars per image)
+  - Cons: Requires a lot of training data and takes a lot of manual time to label (Potentially 11 bounding boxes of Chars per image)
   
 
 - Full object detection approach, find each individual char of the container IDs with object detection, then combine the detections into a full container ID String
-  - pros:
-  - cons:
+
+  - Pros:
+  - Cons:
 
 ## Demo
 
