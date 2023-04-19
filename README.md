@@ -1,49 +1,48 @@
-Dat255 Project – Computer Vision 
+# Dat255 Project – Computer Vision 
 
-Identifying shipping container IDs 
+**Identifying Shipping Container IDs**
 
-Endre Johannesen Rossavik and Alexander Nordstrand 
+_Endre Johannesen Rossavik and Alexander Nordstrand_
 
-Introduction
+## Introduction
 
 Shipping containers are used globally to transport goods, by road, train or by sea. It is a massive logistic undertaking to make sure shipping containers and the goods within get to where they are supposed to go, within a reasonable time, for as little cost as possible. Global shipping is a competitive market where squeezing out every bit of added efficiency, and reduction of man hours, is very compelling.
 
-Most shipping containers have a unique ID signature printed on all sides, the international standard for these signatures is the BIC-code but not all container owners follow these standards, but have a variety of their own ways to issue ID's for their containers. These codes could be identified by an AI model just from images of the containers. The containers have uneven surfaces, wear and tear (rust, dirt, dents) and varying ID locations and text directions which make the task more difficult. They can often contain other unimportant text as well, so the model needs to be able to locate the relevant text and read it accurately. 
+Most shipping containers have a unique ID signature printed on all sides, the international standard for these signatures is the BIC-code but not all container owners follow these standards, but have a variety of their own ways to issue ID's for their containers. These codes could be identified by an AI model just from images of the containers. The containers have uneven surfaces, wear and tear (rust, dirt, dents) and varying ID locations and text directions which make the task more difficult. They can often contain other unimportant text as well, so the model needs to be able to locate the relevant text and read it accurately.
 
-Goals 
+## Goals
 
-- Investigate models and methods for extracting identification codes automatically from image data. 
+- Investigate models and methods for extracting identification codes automatically from image data.
+- Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.
+- Gain solid experience of the difficulties, challenges and pitfalls of extracting characters reliably from complex, imperfect real-life image data.
+- Implement a prototype proof of concept solution that demonstrates the feasibility of the ID identification solution.
 
-- Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.  
+## Methods
 
-- Gain solid experience of the difficulties, challenges and pitfalls of extracting characters reliably from complex, imperfect real-life image data. 
+Two different approaches that were investigated:
 
-- Implement a prototype proof of concept solution that demonstrates the feasibility of the ID identification solution. 
+- Object detection to find the area of the container ID -> read the text from the cropped area by Tesseract OCR
+  - pros:
+  - cons:
 
-Methods
+- Full object detection approach, find each individual char of the container IDs with object detection, then combine the detections into a full container ID String
+  - pros:
+  - cons:
 
-Two different approaches that were investigated: 
-
-- Object detection to find the area of the container ID -> read the text form the cropped area by Tesseract OCR
-   pros:
-   cons:
- 
-- Full object detection approach, find each individual char of the container IDs with object detecton, then combine the detections into a full container ID String 
-   pros:
-   cons:
-
-Results
+## Results
 
 - Object detection + tesseract:
-
 - Full object detection:
 
-The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belongs to the ID, meanwhile ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post processing of the output by for example comparing the predicted ID with a list of known possibl IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable,(sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). Perhaps with more training data and more training time, this approach could have results pushed even farther
+The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belong to the ID while ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post-processing of the output by, for example, comparing the predicted ID with a list of known possible IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable (sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). Perhaps with more training data and more training time, this approach could have results pushed even further.
 
-training results:
-![training results](https://github.com/587763/Container-identification/edit/main/reports/figures/bestChar45TrainingResults/results.png?raw=true)
+### Training Results
 
-confusion matrix: 
+![Training Results](https://github.com/587763/Container-identification/blob/main/reports/figures/bestChar45TrainingResults/results.png?raw=true)
+
+### Confusion Matrix
+
+![Confusion Matrix](https://github.com/587763/Container-identification/blob/main/reports/figures/bestChar45TrainingResults/confusion_matrix.png?raw=true)
 
 
 
