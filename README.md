@@ -46,14 +46,13 @@ Two different approaches that were investigated:
 - Object detection + tesseract:
 
 ID detection very simple and reliable. Tesseract OCR not so reliable. Creating a preprocessing-pieline that reliably handles a large variety of images taken in a varying conditions seems almost impossible. Other OCR engines may be considered for further development. 
-test123
+
 ### Training Results
 
 ![Training Results](https://raw.githubusercontent.com/587763/Container-identification/main/reports/figures/TextDetectFigures/results.png)
 
 ### Confusion Matrix
 
-test123
 ![Confusion Matrix](https://raw.githubusercontent.com/587763/Container-identification/main/reports/figures/TextDetectFigures/confusion_matrix.png)
 
 ### Test samples
