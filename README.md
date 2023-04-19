@@ -73,9 +73,6 @@ The approach seems promising, the YOLOv8 object detection model seems to do well
 ![Confusion Matrix](https://github.com/587763/Container-identification/blob/main/reports/figures/bestChar45TrainingResults/confusion_matrix.png?raw=true)
 
 
-## Conclusion
-
-
 
 Project Organization
 ------------
