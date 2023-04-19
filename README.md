@@ -22,19 +22,29 @@ Most shipping containers have a unique ID signature printed on all sides, the in
 Two different approaches that were investigated:
 
 - Object detection to find the area of the container ID -> read the text from the cropped area by Tesseract OCR
-  - pros:
-  - cons:
+  - pros: Object detection seems to perform very well, seems like a clear path towards better container ID accuracy with more training data.
+  
+  - cons: Requires a lot of training data and takes a lot of manual time to label (Potentially 11 bounding boxes of Chars per image)
+  
 
 - Full object detection approach, find each individual char of the container IDs with object detection, then combine the detections into a full container ID String
   - pros:
   - cons:
 
+## Demo
+
+
+<p><small>Huggingface spaces demo of full object detection approach is <a target="_blank" href="https://huggingface.co/spaces/alenor/ContainerCodeV1"> available here</a>. </small></p>
+
+
 ## Results
 
 - Object detection + tesseract:
+
 - Full object detection:
 
-The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belong to the ID while ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post-processing of the output by, for example, comparing the predicted ID with a list of known possible IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable (sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). Perhaps with more training data and more training time, this approach could have results pushed even further.
+The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belong to the ID while ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post-processing of the output by, for example, comparing the predicted ID with a list of known possible IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable (sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). From the confusion matrix you can also observe that it does very poorly with "j", that is because that letter is severely  underrepresented in the training data. Perhaps with more training data and more training time, this approach could have results pushed even further.
+
 
 ### Training Results
 
