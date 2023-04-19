@@ -47,6 +47,18 @@ Two different approaches that were investigated:
 
 ID detection very simple and reliable. Tesseract OCR not so reliable. Creating a preprocessing-pieline that reliably handles a large variety of images taken in a varying conditions seems almost impossible. Other OCR engines may be considered for further development. 
 
+### Training Results
+
+![Training Results](https://raw.githubusercontent.com/587763/Container-identification/main/reports/figures/TextDetectFigures/results.png)
+
+### Confusion Matrix
+
+![Confusion Matrix](https://raw.githubusercontent.com/587763/Container-identification/main/reports/figures/TextDetectFigures/confusion_matrix.png)
+
+### Test samples
+
+![Test samples](https://github.com/587763/Container-identification/blob/main/reports/figures/TextDetectFigures/TesseractOCRResults.pdf)
+
 - Full object detection:
 
 The approach seems promising, the YOLOv8 object detection model seems to do well at finding the text characters that belong to the ID while ignoring other text on the container. The final trained "bestChar45.pt" gets about 70% correct container ID on the test set, and with post-processing of the output by, for example, comparing the predicted ID with a list of known possible IDs it could be, the final accuracy was 98%+ on the test set. The mistakes the model makes are quite understandable (sometimes confuses "1" and "I", "8" sometimes becomes two "0"'s etc). From the confusion matrix you can also observe that it does very poorly with "j", that is because that letter is severely underrepresented in the training data, because "j" is a reserved letter along with "U" and "Z" that signifies what type of contents a container has, and the training data for this model lacked the "j" type in particular. Perhaps with more training data and more training time, this approach could have results pushed even further.
@@ -59,6 +71,7 @@ The approach seems promising, the YOLOv8 object detection model seems to do well
 ### Confusion Matrix
 
 ![Confusion Matrix](https://github.com/587763/Container-identification/blob/main/reports/figures/bestChar45TrainingResults/confusion_matrix.png?raw=true)
+
 
 ## Conclusion
 
