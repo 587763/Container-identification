@@ -22,15 +22,15 @@ Goals
 
 Methods
 
-two different approaches that were investigated: 
+Two different approaches that were investigated: 
 
 - Object detection to find the area of the container ID -> read the text form the cropped area by Tesseract OCR
- -pros:
- -cons:
+ - pros:
+ - cons:
  
 - Full object detection approach, find each individual char of the container IDs with object detecton, then combine the detections into a full container ID String 
- -pros:
- -cons
+ - pros:
+ - cons:
 
 Results
 
