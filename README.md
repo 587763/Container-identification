@@ -16,6 +16,7 @@ Most shipping containers have a unique ID signature printed on all sides, the in
 - Explore and compare solutions based on ready-made OCR technology vs a specially trained model for this specific purpose.
 - Gain solid experience of the difficulties, challenges and pitfalls of extracting characters reliably from complex, imperfect real-life image data.
 - Implement a prototype proof of concept solution that demonstrates the feasibility of the ID identification solution.
+- 95+% accuracy for OCR on each container. Not necessary to acheive this immediately but but further develpment will be on whichever solution seems most promising. 
 
 ## Methods
 
@@ -23,15 +24,16 @@ Two different approaches that were investigated:
 
 - Object detection to find the area of the container ID -> read the text from the cropped area by Tesseract OCR
 
-  - Pros: Object detection seems to perform very well, seems like a clear path towards better container ID accuracy with more training data.
+  - Pros: ID detection is very simple and reliable. Uses industry tested technology. Huge access to guides and resources to acheive desired reults. Less dependant on large and varied trainingsets. 
   
-  - Cons: Requires a lot of training data and takes a lot of manual time to label (Potentially 11 bounding boxes of Chars per image)
+  - Cons: Understadning how Tesseract works can be very esoteric, works well in some cases and not in others with no clear reason why. Preprocessing can be very timeconsuming to set up.
   
 
 - Full object detection approach, find each individual char of the container IDs with object detection, then combine the detections into a full container ID String
 
-  - Pros:
-  - Cons:
+  - Pros: Object detection seems to perform very well, seems like a clear path towards better container ID accuracy with more training data.
+  
+  - Cons: Requires a lot of training data and takes a lot of manual time to label (Potentially 11 bounding boxes of Chars per image)
 
 ## Demo
 
@@ -42,6 +44,8 @@ Two different approaches that were investigated:
 ## Results
 
 - Object detection + tesseract:
+
+ID detection very simple and reliable. Tesseract OCR not so reliable. Creating a preprocessing-pieline that reliably handles a large variety of images taken in a varying conditions seems almost impossible. Other OCR engines may be considered for further development. 
 
 - Full object detection:
 
@@ -55,6 +59,8 @@ The approach seems promising, the YOLOv8 object detection model seems to do well
 ### Confusion Matrix
 
 ![Confusion Matrix](https://github.com/587763/Container-identification/blob/main/reports/figures/bestChar45TrainingResults/confusion_matrix.png?raw=true)
+
+## Conclusion
 
 
 
